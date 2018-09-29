@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div.headerTitle
+    h1 Product single page
+    button(class="pull-left") Shopping Cart  
+    p#cartCount 0     
+
+
+  div.productPageContent
+    img.pull-left.col-md-9(src=product.productPic)
+    div.pull-right.col-md-3
+      h2 #{product.productName}
+      h3 #{product.productPrice}
+      ul
+        -for(let cat of product.productCategories)
+          li.productCategory #{cat}
+      button.addToCart(data-id=product._id) add to cart
+        
+
+  
