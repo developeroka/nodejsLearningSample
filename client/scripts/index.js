@@ -10,7 +10,22 @@ const addBtn = $('.addToCart');
 //     $('#cartCount').value = localStorage.length
 // }
 
-$('.humberger').onclick = function toggleChange() {
-    this.classList.toggle("change");
+$('.hamburger').onclick = function toggleChange() {
+    if(this.classList.contains('nav'))
+    {
+        $('.sidenav').style.width = "0";
+        $('.main').style.marginLeft = "0";
+        this.classList.remove('nav');
+    }
+    else
+    {
+    this.classList.add('nav');
+    $('.sidenav').style.width = "300px";
+    $('.main').style.marginLeft = "300px";
+    }
 }
+
+
+
+
 
