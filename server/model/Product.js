@@ -1,10 +1,22 @@
 const db = require('./db');
 
 const productSchema = db.Schema({
-        productPic: String,
+        productPics: [String],
+        productColors:[String],
+        productDetails:String,
+        productStyle:String,
+        productMaterial:String,           
         productName: String,  
         productPrice: String,
-        productCategories: [String]
+        productSizeInfo:[{
+                InfoName: String,
+                InfoValue: String
+        }],
+        productCategory: [{
+                type: db.Schema.Types.ObjectId,
+                ref: "Category"
+        }],
+        ShareUrl: String
 });
 
 const Product = db.model('Product', productSchema);
