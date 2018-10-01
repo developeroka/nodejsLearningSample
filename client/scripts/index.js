@@ -13,17 +13,23 @@ const addBtn = $('.addToCart');
 $('.hamburger').onclick = function toggleChange() {
     if(this.classList.contains('nav'))
     {
-        $('.sidenav').style.width = "0";
-        $('.main').style.marginLeft = "0";
-        $('.main').style.marginRight = "0";
+        $('.sidenav').classList.remove('side-active');
+        $('.main').classList.remove('main-leftsidenav-first-transition');
+
+        $('.sidenav').classList.add('side-deactive');
+        $('.main').classList.add('main-leftsidenav-second-transition');
+       
         this.classList.remove('nav');
     }
     else
     {
         this.classList.add('nav');
-        $('.sidenav').style.width = "300px";
-        $('.main').style.marginRight = "-300px";
-        $('.main').style.marginLeft = "300px";
+
+        $('.sidenav').classList.remove('side-deactive');
+        $('.main').classList.remove('main-leftsidenav-second-transition');
+
+        $('.sidenav').classList.add('side-active');
+        $('.main').classList.add('main-leftsidenav-first-transition');
     }
 }
 
