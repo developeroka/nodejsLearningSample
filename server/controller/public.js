@@ -1,5 +1,6 @@
 const Category = require('../model/Category.js')
 const Product = require('../model/Product.js')
+const mongoose = require('mongoose') 
 
 
 let rController = {}
@@ -37,15 +38,18 @@ rController.index = function (req, res) {
         })
 
     })
-
-
 }
 
 rController.insertCategory = function (req, res) {
 
-    let category = new Category({
-        typeName: "Laptop"
-    })
+    let category = new Category(
+    
+        {
+            parentId: mongoose.Types.ObjectId(),
+            typeName: ""
+        }
+    
+    )
 
     category.save().then((result) => {
         return res.json(result)
