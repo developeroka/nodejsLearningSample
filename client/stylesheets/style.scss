@@ -141,15 +141,14 @@ body{
                         z-index: 1;
                         top: 0;
                         left: 0;
-    
-                        & > .side-active{
-                            width : "300px";
-                        }
-
-                        & > .side-deactive{
-                            width : "0";
-                        }
                       
+                    }
+                    .side-active{
+                        width : 300px;
+                       
+                    }
+                    .side-deactive{
+                        width : 0;
                     }
                 }
             }
@@ -164,18 +163,16 @@ body{
                 z-index: -1;
             }
         }
+    }
 
-        & > .main-leftsidenav-first-transition{
-            margin-left: "300px";
-            margin-right: "-300px";
-        }
-        
-        & > .main-leftsidenav-second-transition{
-            margin-left: 0;
-            margin-right: 0;
-        }
-
-       
+    .main-leftsidenav-first-transition{
+        margin-left: 300px ;
+        margin-right: -300px ;
+    }
+    
+    .main-leftsidenav-second-transition{
+        margin-left: 0 ;
+        margin-right: 0 ;
     }
 }
 
