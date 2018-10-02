@@ -22,6 +22,7 @@ body{
 
     .main{
         transition: margin-left .5s;
+        transition: margin-right .5s;
 
         .header{
             position: relative;
@@ -33,6 +34,7 @@ body{
                 justify-content: space-between;
                 align-items: center;
                 margin: 0 20px;
+                line-height: 0;
     
                 & > .right-nav{
                 flex-direction: row;
@@ -41,6 +43,15 @@ body{
                 justify-content: space-around;
                 align-items: center;
                 margin: auto 0;
+
+                    & > .cart{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        margin-left: 10px;
+                    }
     
                     img{
                         width: 15px;
@@ -63,9 +74,67 @@ body{
                             outline: none !important;
                         }
                     }
-                
-    
-                
+
+
+                    & > .right-sidenav {
+                            background: #fff;
+                            height: 100%;
+                            width: 0;
+                            position: fixed;
+                            transition: 0.5s;
+                            padding-top: 60px;
+                            overflow-x: hidden;
+                            border-left: 1px solid rgb(234, 234, 234);
+                            z-index: 1;
+                            top: 0;
+                            right: 0;
+                            // padding: 10px;
+                            direction: ltr;
+
+                        & > .right-nav-header{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            direction: ltr;
+                            border-bottom: 1px solid rgb(234, 234, 234);
+                            line-height: 66px;
+
+                            & > span:first-child{
+                                font-size: 16px;
+                                font-weight: bold;
+                            }
+
+                            & > span:nth-child(2){
+                                font-size: 22px;
+                                cursor: pointer;
+                            }
+                        }
+
+                        & > .cart-content{
+
+                            & > p{
+                                font-size: 12px;
+                                color: #5a5a5a;
+                            }
+                        }
+                    } 
+                }   
+            
+                .rightside-nav-active{
+                    width : 300px;
+                }
+                .rightside-nav-deactive{
+                    width : 0;
+                }
+
+                .main-rightsidenav-first-transition{
+                    margin-right: 300px ;
+                    margin-left: -300px ;
+                }
+
+                .main-rightsidenav-second-transition{
+                    margin-left: 0 ;
+                    margin-right: 0 ;
                 }
 
                 & > .center-nav{
@@ -126,9 +195,6 @@ body{
                         }
                         
                     }
-                    
-                    
-                    
     
                     & > .sidenav{
                         background: #1e1e1e;
