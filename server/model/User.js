@@ -18,6 +18,7 @@ const userSchema = db.Schema({
             type: String,
             required: true 
         }
+        
 });
 
 const User = db.model('User', userSchema);
