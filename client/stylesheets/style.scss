@@ -82,13 +82,11 @@ body{
                             width: 0;
                             position: fixed;
                             transition: 0.5s;
-                            padding-top: 60px;
                             overflow-x: hidden;
                             border-left: 1px solid rgb(234, 234, 234);
                             z-index: 1;
                             top: 0;
                             right: 0;
-                            // padding: 10px;
                             direction: ltr;
 
                         & > .right-nav-header{
@@ -122,6 +120,8 @@ body{
             
                 .rightside-nav-active{
                     width : 300px !important;
+                    padding: 10px;
+
                 }
                 .rightside-nav-deactive{
                     width : 0 !important;
