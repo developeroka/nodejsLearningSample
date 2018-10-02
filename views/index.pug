@@ -5,12 +5,20 @@ block content
     .header
       .nav-bar
         .right-nav  
-            span.cartQuantity (0)
-            img(src="/images/icons/cart.svg")
+            .cart
+              span.cart.cartQuantity (0)
+              img.cart(src="/images/icons/cart.svg")
             img(src="/images/icons/profile.svg")
             img(src="/images/icons/search.svg")
             span |
             input(type="search" placeholder="search") 
+            .right-sidenav
+              .right-nav-header
+                span SHOPPING CART 
+                span.close-right-nav &times;
+              .cart-content
+                p Your cart is currently empty.
+              ul
     
         .center-nav 
             ul
