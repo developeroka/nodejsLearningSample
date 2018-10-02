@@ -40,11 +40,12 @@ $('.hamburger').onclick = function toggleChange() {
 }
 
 
-$('.cart').onclick = function toggleChange() {
+$('.cart').onclick = function () {
     if(this.classList.contains('right-side-nav'))
     {
         $('.right-sidenav').classList.remove('rightside-nav-active');
         $('.main').classList.remove('main-rightsidenav-first-transition');
+
         $('.right-sidenav').classList.add('rightside-nav-deactive');
         $('.main').classList.add('main-rightsidenav-second-transition');
     
@@ -56,11 +57,19 @@ $('.cart').onclick = function toggleChange() {
     else
     {
         this.classList.add('right-side-nav');
-        $('.right-sidenav').classList.remove('rightside-nav-deactive');
-        $('.main').classList.remove('main-rightidenav-second-transition');
+      
         $('.right-sidenav').classList.add('rightside-nav-active');    
         $('.main').classList.add('main-rightsidenav-first-transition');
     }
+}
+
+$('.close-right-nav').onclick = function () {
+    
+    $('.right-sidenav').classList.remove('rightside-nav-active');    
+    $('.main').classList.remove('main-rightsidenav-first-transition');
+
+    $('.cart').classList.remove('right-side-nav');
+
 }
 
 
