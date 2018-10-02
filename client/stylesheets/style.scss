@@ -121,21 +121,13 @@ body{
                 }   
             
                 .rightside-nav-active{
-                    width : 300px;
+                    width : 300px !important;
                 }
                 .rightside-nav-deactive{
-                    width : 0;
+                    width : 0 !important;
                 }
 
-                .main-rightsidenav-first-transition{
-                    margin-right: 300px ;
-                    margin-left: -300px ;
-                }
-
-                .main-rightsidenav-second-transition{
-                    margin-left: 0 ;
-                    margin-right: 0 ;
-                }
+                
 
                 & > .center-nav{
     
@@ -239,6 +231,16 @@ body{
     .main-leftsidenav-second-transition{
         margin-left: 0 ;
         margin-right: 0 ;
+    }
+
+    .main-rightsidenav-first-transition{
+        margin-right: 300px !important;
+        margin-left: -300px !important;
+    }
+
+    .main-rightsidenav-second-transition{
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 }
 
