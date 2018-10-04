@@ -72,6 +72,10 @@ $('.close-right-nav').onclick = function () {
 
 }
 
+$('.chat-btn').onclick = function(){
+    $('.chat-box').style.display = "block";
+}
+
 
 
 
