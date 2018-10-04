@@ -256,6 +256,8 @@ body{
             visibility : hidden;
             opacity: 0;
             position: fixed;
+            z-index: 2;
+            background: whitesmoke;
             bottom: 30px;
             left: 30px;
             width: 320px;
