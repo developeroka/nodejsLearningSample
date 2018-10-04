@@ -73,7 +73,8 @@ $('.close-right-nav').onclick = function () {
 }
 
 $('.chat-btn').onclick = function(){
-    $('.chat-box').style.display = "block";
+    $('.chat-box').classList.add('visible-chatbox');
+    this.classList.add('hidden-chatbtn');
 }
 
 
