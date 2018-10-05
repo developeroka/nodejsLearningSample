@@ -1,35 +1,35 @@
-// class Server {
+class Server {
 
-//     constructor () {
-//         this._io = null;
-//     }
+    constructor () {
+        this._io = null;
+    }
 
-//     set io (io) {
-//         this._io = io;
-//         this.init();
-//     }
+    set io (io) {
+        this._io = io;
+        this.init();
+    }
 
-//     get io () {
-//         return this._io;
-//     }
+    get io () {
+        return this._io;
+    }
 
-//     init () {
-//         this.io.on('connection', onUserConnected);
-//     }
+    init () {
+        this.io.on('connection', onUserConnected);
+    }
 
-// }
+}
 
-// const names = ['Bear', 'Lion', 'Chicken', 'Whale', 'Fish'];
+const names = ['Bear', 'Lion', 'Chicken', 'Whale', 'Fish'];
 
-// const onUserConnected = socket => {
-//     const name = names[Math.floor(names.length * Math.random())]
-//     socket.on('pong client', message => {
-//         console.log(message);
-//         setTimeout(() => {
-//             socket.emit('ping server', `Ping from ${name}`);
-//         }, 2000);
-//     });
-// };
-// const server = new Server;
+const onUserConnected = socket => {
+    const name = names[Math.floor(names.length * Math.random())]
+    socket.on('pong from client', message => {
+        console.log(message);
+        setTimeout(() => {
+            socket.emit('ping server', `Ping from ${message}`);
+        }, 2000);
+    });
+};
+const server = new Server;
 
-// module.exports = server;
+module.exports = server;

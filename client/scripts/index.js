@@ -1,3 +1,5 @@
+import socket from '../scripts/model/socket.js';
+
 
 const $ = query => document.querySelector(query);
 const $$ = query => document.querySelectorAll(query);
@@ -75,6 +77,21 @@ $('.close-right-nav').onclick = function () {
 $('.chat-btn').onclick = function(){
     $('.chat-box').classList.add('visible-chatbox');
     this.classList.add('hidden-chatbtn');
+}
+
+$('.submit-msg').onclick = function () {
+
+    socket.emit('pong from client',$('.msg-text').value)
+    $('.salam').innerHTML = $('.msg-text').value;
+
+
+    socket.on('ping server', message => {
+    $('.salam').innerHTML = message;
+    setTimeout(() => {
+        socket.emit('pong client', message + 'from ' + socket.id)
+    }, 2000)
+    })
+
 }
 
 
