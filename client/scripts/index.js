@@ -1,5 +1,4 @@
-import socket from '../scripts/model/socket.js';
-
+import io from 'socket.io-client';
 
 const $ = query => document.querySelector(query);
 const $$ = query => document.querySelectorAll(query);
@@ -81,18 +80,24 @@ $('.chat-btn').onclick = function(){
 
 $('.submit-msg').onclick = function () {
 
-    socket.emit('pong from client',$('.msg-text').value)
+    var socket = io.connect('/sendmsg-nsp');
+    socket.on('hi',(msg) => {
+        $('.server').innerHTML = msg;
+    });
+    // socket.emit('pong from client',$('.msg-text').value)
     $('.salam').innerHTML = $('.msg-text').value;
 
+    
 
-    socket.on('ping server', message => {
-    $('.salam').innerHTML = message;
-    setTimeout(() => {
-        socket.emit('pong client', message + 'from ' + socket.id)
-    }, 2000)
-    })
+    // socket.on('ping server', message => {
+    // setTimeout(() => {
+    //     socket.emit('pong client', message + 'from ' + socket.id)
+    // }, 2000)
+    // })
 
 }
+
+
 
 
 
