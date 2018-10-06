@@ -14,7 +14,7 @@ class Server {
     }
 
     init () {
-        this.io.on('connect', onUserConnected);
+        this.io.on('connection', onUserConnected);
     }
 
 }
@@ -22,7 +22,7 @@ class Server {
 
 const onUserConnected = socket => {
     socket.on('chat message', message => {
-      socket.emit('chat recieved','jiikh')
+        server.io.emit('chat recieved',message)
     });
 };   
 
