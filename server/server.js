@@ -2,6 +2,8 @@ class Server {
 
     constructor () {
         this._io = null;
+        this._count =  0;
+        this._chatnsp = null;
     }
 
     set io (io) {
@@ -14,16 +16,31 @@ class Server {
     }
 
     init () {
-        this.io.on('connection', onUserConnected);
+        this._chatnsp = this._io.of('/chat-nsp');
+        this._chatnsp.on('connection', onUserConnected);
     }
-
 }
 
 
 const onUserConnected = socket => {
-    socket.on('chat message', message => {
-        server.io.emit('chat recieved',message)
-    });
+  
+    server._count = server._count + 1;
+    
+    if(server._count <= 2){
+      socket.join('room1');
+      socket.on('chat message', message => {
+          server._chatnsp.to('room1').emit('chat recieved', message);
+      });
+    }
+
+    else
+    {
+      socket.join('room2');
+      socket.on('chat message', message => {
+          server._chatnsp.to('room2').emit('chat recieved', message);
+      });
+    }
+
 };   
 
 const server = new Server;
