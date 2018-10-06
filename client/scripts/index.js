@@ -1,5 +1,7 @@
 import io from 'socket.io-client';
 
+
+const socket = io.connect('/');
 const $ = query => document.querySelector(query);
 const $$ = query => document.querySelectorAll(query);
 
@@ -75,27 +77,24 @@ $('.close-right-nav').onclick = function () {
 
 $('.chat-btn').onclick = function(){
     $('.chat-box').classList.add('visible-chatbox');
+    $('.displayName').value = prompt('Enter Your Name: ', 'Client');
     this.classList.add('hidden-chatbtn');
 }
 
 $('.submit-msg').onclick = function () {
 
-    var socket = io.connect('/sendmsg-nsp');
-    socket.on('hi',(msg) => {
-        $('.server').innerHTML = msg;
-    });
-    // socket.emit('pong from client',$('.msg-text').value)
-    $('.salam').innerHTML = $('.msg-text').value;
-
-    
-
-    // socket.on('ping server', message => {
-    // setTimeout(() => {
-    //     socket.emit('pong client', message + 'from ' + socket.id)
-    // }, 2000)
-    // })
-
+    const name = $('.displayName').value;
+    const message = $('.msg-text').value;
+    socket.emit('chat message', `${name} : ${message}`);
+    $('.msg-text').value ='';
 }
+
+socket.on('chat recieved', msg =>  {
+    var li = document.createElement('li');
+    var liText = document.createTextNode(msg);
+    li.appendChild(liText);
+    $('#messages').append(li);
+});
 
 
 
