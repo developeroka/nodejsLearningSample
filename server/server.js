@@ -27,18 +27,18 @@ const onUserConnected = socket => {
     server._count = server._count + 1;
     
     if(server._count <= 2){
-      socket.join('room1');
-      socket.on('chat message', message => {
-          server._chatnsp.to('room1').emit('chat recieved', message);
+        socket.on('chat message', message => {
+            socket.join('room1');
+            server._chatnsp.in('room1').emit('chat recieved', message.name + ':' + message.message , {for : ''} );
       });
     }
 
     else
     {
-      socket.join('room2');
       socket.on('chat message', message => {
-          server._chatnsp.to('room2').emit('chat recieved', message);
-      });
+          socket.join('room2');
+          server._chatnsp.in('room2').emit('chat recieved', message.name + ':' + message.message  );
+    });
     }
 
 };   

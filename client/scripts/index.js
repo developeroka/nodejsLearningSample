@@ -2,7 +2,7 @@ import io from 'socket.io-client';
 
 
 // const socket = io.connect('/');
-const socket = io('/chat-nsp');
+const socket = io.connect('/chat-nsp');
 const $ = query => document.querySelector(query);
 const $$ = query => document.querySelectorAll(query);
 
@@ -85,7 +85,9 @@ $('.chat-btn').onclick = function(){
 $('.submit-msg').onclick = function () {
     const name = $('.displayName').value;
     const message = $('.msg-text').value;
-    socket.emit('chat message', `${name} : ${message}`);
+    const msgJson = {"name" : name, 
+                     "message" : message};
+    socket.emit('chat message', msgJson);
     $('.msg-text').value ='';
 }
 
