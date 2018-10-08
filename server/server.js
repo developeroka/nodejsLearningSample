@@ -29,7 +29,7 @@ const onUserConnected = socket => {
     if(server._count <= 2){
         socket.on('chat message', message => {
             socket.join('room1');
-            server._chatnsp.in('room1').emit('chat recieved', message.name + ':' + message.message , {for : ''} );
+            server._chatnsp.in('room1').emit('chat recieved', message.name + ':' + message.message  );
       });
     }
 

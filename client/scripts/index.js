@@ -1,7 +1,6 @@
 import io from 'socket.io-client';
 
 
-// const socket = io.connect('/');
 const socket = io.connect('/chat-nsp');
 const $ = query => document.querySelector(query);
 const $$ = query => document.querySelectorAll(query);
