@@ -31,7 +31,7 @@ app.use(cookieParser());
 app.use(sass({
   src: path.join(__dirname, 'client'),
   dest: path.join(__dirname, 'dist'),
-  outputStyle: 'compressed',
+  outputStyle: 'compressed'
 }))
 app.use(express.static(path.join(__dirname, 'dist')));
 
@@ -44,7 +44,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
 
 // error handler
 app.use(function(err, req, res, next) {
