@@ -42,6 +42,29 @@ $('.hamburger').onclick = function toggleChange() {
     }
 }
 
+$('#forward').onclick = function() {
+    var imgs = $$('.img-container')
+        for(var img of imgs)
+        {
+            var rightstyle = getComputedStyle(img).right.split('p')[0]
+            rightstyle -= 455 
+            rightstyle += 'px'
+            img.style.right = rightstyle.toString()
+            console.log(getComputedStyle(img).right);
+        }
+}
+
+$('#backward').onclick = function() {
+    var imgs = $$('.img-container')
+        for(var img of imgs)
+        {
+            var rightstyle = parseInt(getComputedStyle(img).right.split('p')[0])
+            rightstyle += 455 
+            rightstyle += 'px'
+            img.style.right = rightstyle.toString()
+            console.log(getComputedStyle(img).right);
+        }
+}
 
 $('.cart').onclick = function () {
     if(this.classList.contains('right-side-nav'))
